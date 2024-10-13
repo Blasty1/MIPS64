@@ -1,1 +1,1 @@
-C:\Users\Bryan\Documents\MIPS64\Lab1.s
+C:\Users\Bryan\Documents\MIPS64\Lab2.s
