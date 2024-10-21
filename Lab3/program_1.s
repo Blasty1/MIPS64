@@ -58,13 +58,6 @@ mul.d F11,F1,F11
 
 
 ENDIF:
-
-bnez R11,NON_AZZERARE
-
-ori R11,R0,4
-
-NON_AZZERARE:
-
 ADD.D F30,F29,F11
 
 ;lo riconverto m in intero
@@ -73,26 +66,24 @@ mfc1 R12,F31
 
 ; F11 è A
 
+bnez R11,NON_AZZERARE
 
+ori R11,R0,4
+
+NON_AZZERARE:
+daddi R11,R11,-1
 
 ;calcolo v4
 mul.d F7,F11,F1 ; a * v1 
 sub.d F4,F7,F2
-daddi R11,R11,-1
-
-
-
-;calcolo v6
-sub.d F9,F4,F1
 
 ;calcolo v5
 div.d F5,F4,F3
 
+
 ;calcolo v6
+sub.d F9,F4,F1
 mul.d F6,F9,F5
-
-daddi R28,R28,-1
-
 
 ;store delle informazioni
 s.d F4,v4(R10)
@@ -100,6 +91,7 @@ s.d F5,v5(R10)
 s.d F6,v6(R10)
 
 daddi R10,R10,-8
+daddi R28,R28,-1
 
 bnez R10,START 
 ;nop

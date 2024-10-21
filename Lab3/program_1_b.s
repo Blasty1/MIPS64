@@ -78,7 +78,6 @@ mfc1 R12,F31
 ;calcolo v4
 mul.d F7,F11,F1 ; a * v1 
 sub.d F4,F7,F2
-daddi R11,R11,-1
 
 
 
@@ -91,7 +90,7 @@ div.d F5,F4,F3
 ;calcolo v6
 mul.d F6,F9,F5
 
-daddi R28,R28,-1
+
 
 
 ;store delle informazioni
@@ -100,8 +99,9 @@ s.d F5,v5(R10)
 s.d F6,v6(R10)
 
 daddi R10,R10,-8
-
+daddi R11,R11,-1
 bnez R10,START 
+daddi R28,R28,-1
 ;nop
 HALT
 
