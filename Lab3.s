@@ -82,11 +82,10 @@ daddi R11,R11,-1
 
 
 
-;calcolo v6
-sub.d F9,F4,F1
-
 ;calcolo v5
 div.d F5,F4,F3
+;calcolo v6
+sub.d F9,F4,F1
 
 ;calcolo v6
 mul.d F6,F9,F5

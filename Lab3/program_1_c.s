@@ -54,21 +54,20 @@ mul.d F7,F11,F1 ; a * v1
 sub.d F4,F7,F2
 
 
+;calcolo v5
+div.d F5,F4,F3
 
 ;calcolo v6
 sub.d F9,F4,F1
 
-;calcolo v5
-div.d F5,F4,F3
-
-
+;store delle informazioni
+s.d F4,v4(R10)
+s.d F5,v5(R10)
 
 ;calcolo v6
 mul.d F6,F9,F5
 
-;store delle informazioni
-s.d F4,v4(R10)
-s.d F5,v5(R10)
+
 s.d F6,v6(R10)
 
 daddi R10,R10,-8
@@ -89,12 +88,9 @@ cvt.d.l F11,F11
 div.d F11,F1,F11
 
 
-
 ADD.D F30,F29,F11
 
-;lo riconverto m in intero
-cvt.l.d F30,F31 
-mfc1 R12,F31
+
 
 ; F11 è A
 
@@ -105,15 +101,26 @@ sub.d F4,F7,F2
 
 
 
-;calcolo v6
-sub.d F9,F4,F1
+
 
 ;calcolo v5
 div.d F5,F4,F3
 
+;lo riconverto m in intero
+cvt.l.d F30,F31 
+mfc1 R12,F31
+
+;calcolo v6
+sub.d F9,F4,F1
+
+;store delle informazioni
+s.d F4,v4(R10)
+s.d F5,v5(R10)
+
 ;calcolo v6
 mul.d F6,F9,F5
 
+s.d F6,v6(R10)
 
 beqz R28,END
 
@@ -149,21 +156,20 @@ mul.d F7,F11,F1 ; a * v1
 sub.d F4,F7,F2
 
 
+;calcolo v5
+div.d F5,F4,F3
 
 ;calcolo v6
 sub.d F9,F4,F1
 
-;calcolo v5
-div.d F5,F4,F3
-
-
-
-;calcolo v6
-mul.d F6,F9,F5
 
 ;store delle informazioni
 s.d F4,v4(R10)
 s.d F5,v5(R10)
+
+;calcolo v6
+mul.d F6,F9,F5
+
 s.d F6,v6(R10)
 
 daddi R10,R10,-8
